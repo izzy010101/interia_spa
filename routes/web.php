@@ -5,6 +5,13 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
+
+// Add this route to `web.php` to fetch products
+Route::get('/products', function () {
+    return response()->json(Product::all());
+});
+
 
 Route::middleware(['auth'])->get('/dashboard', [ProductController::class, 'index'])->name('dashboard');
 

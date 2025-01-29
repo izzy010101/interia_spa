@@ -7,6 +7,7 @@ import Products from '@/Pages/Products.vue';
 defineProps({
     products: Array
 });
+
 </script>
 
 <template>

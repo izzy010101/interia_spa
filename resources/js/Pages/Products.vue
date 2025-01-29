@@ -1,38 +1,32 @@
-<script setup>
-const props = defineProps({
-    products: {
-        type: Array,
-        default: () => []  // Fallback to an empty array if no products
-    }
-});
-
-// console.log(props.products); // Log the data to check if it's being passed
-</script>
-
 <template>
-    <div v-if="props.products.length > 0">
-        <table>
+    <div>
+        <h2>Products</h2>
+        <table class="min-w-full table-auto ">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Created At</th>
+                <th class="px-4 py-2 text-left">Product ID</th>
+                <th class="px-4 py-2 text-left">Product Name</th>
+                <th class="px-4 py-2 text-left">Description</th>
+                <th class="px-4 py-2 text-left">Price</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="product in props.products" :key="product.id">
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.created_at }}</td>
+            <tr v-for="product in products" :key="product.id">
+                <td class="px-4 py-2">{{ product.id }}</td>
+                <td class="px-4 py-2">{{ product.name }}</td>
+                <td class="px-4 py-2">{{ product.description }}</td>
+                <td class="px-4 py-2">{{ product.price }}</td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div v-else>
-        <p>No products available</p>
-    </div>
 </template>
+
+<script>
+export default {
+    props: ['products'],
+    mounted() {
+        console.log("Received Products:", this.products);
+    }
+}
+</script>
