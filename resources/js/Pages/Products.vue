@@ -22,11 +22,15 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: ['products'],
-    mounted() {
-        console.log("Received Products:", this.products);
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    products: {
+        type: Array,
+        required: true
     }
-}
+});
+
+console.log("Received Products:", props.products);
 </script>

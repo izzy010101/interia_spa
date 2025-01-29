@@ -13,7 +13,8 @@ class ProductController extends Controller
         $products = Product::all();
 
         return Inertia::render('Dashboard', [
-            'products' => $products, // Passing products data to the frontend
+            'products' => $products // Pass the products array to the dashboard
+
         ]);
     }
 }
