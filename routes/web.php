@@ -8,12 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Models\Product;
 
 
-//fetch products here
-//Route::get('/products', function () {
-//    return response()->json(Product::all());
-//});
 
-Route::middleware(['auth'])->get('/products', [ProductController::class, 'index'])->name('dashboard');
+//Route::middleware(['auth'])->get('/products', [ProductController::class, 'index'])->name('dashboard');
 
 Route::middleware(['auth'])->get('/dashboard', [ProductController::class, 'index'])->name('dashboard');
 
